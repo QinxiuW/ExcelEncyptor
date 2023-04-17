@@ -43,8 +43,9 @@ layout = [
     [sg.FolderBrowse(key='directorio'), sg.Text('Directorio:', size=(20, 1))],
     [sg.Text('Contraseña:', size=(10, 1)), sg.InputText(key='password')],
     [sg.Submit(button_text='Encriptar')],
-    [sg.Text('')],
     [sg.Submit(button_text='Abrir')],
+    [sg.Text('')],
+    [sg.Submit(button_text='Salir',button_color=('red'))]
 ]
 
 # Crear la ventana de la aplicación
@@ -53,6 +54,10 @@ window = sg.Window('Mi aplicación', layout, size=(300, 300))
 # Bucle principal de la aplicación
 while True:
     event, values = window.Read()
+
+    # Verificar si se ha hecho clic en el botón de salida
+    if event == 'Salir' or event == sg.WIN_CLOSED:
+        break
 
     if event == 'Encriptar':
         directorio = values['directorio']
