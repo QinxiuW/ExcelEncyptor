@@ -2,5 +2,5 @@
 
 
 
-Para compilar a exe
-``pyinstaller --hidden-import PySimpleGUIQt --onefile .\excelEncryptor.py``
+### EXE compile
+``pyinstaller --hidden-import PySimpleGUIQt --name excelEncryptor-v.1.0.exe --onefile .\excelEncryptor.py``
