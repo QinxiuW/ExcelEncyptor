@@ -3,4 +3,4 @@
 
 
 ### EXE compile
-``pyinstaller --hidden-import PySimpleGUIQt --name excelEncryptor-v.1.0.exe --onefile .\excelEncryptor.py``
+`` pyinstaller --onefile .\ExcelEncriptor.py --name excelEncryptor-v.1.1.exe``
