@@ -7,13 +7,16 @@ import PySimpleGUI as sg
 def encriptar_excel(directorio, password):
     # Obtener la lista de archivos Excel en el directorio
     archivos_excel = glob.glob(os.path.join(directorio, '*.xlsx'))
-
+    print(archivos_excel)
     # Crear una instancia de Excel
-    excel = win32.gencache.EnsureDispatch('Excel.Application')
+    excel = win32.Dispatch('Excel.Application')
 
     # Iterar sobre cada archivo Excel y protegerlo con contraseña
     for archivo in archivos_excel:
-        workbook = excel.Workbooks.Open(archivo, Password=password)
+        print(archivo)
+        workbook = excel.Workbooks.Open(archivo)
+           # Set the password to protect the file
+        workbook.Password = password
         workbook.Save()
         workbook.Close()
 
@@ -31,7 +34,10 @@ def abrir_excel(directorio, password):
     # Iterar sobre cada archivo Excel y abrirlo
     for archivo in archivos_excel:
         print(archivo)
+        print(password)
         workbook = excel.Workbooks.Open(archivo,Password=password)
+        # Set the password to protect the file
+        print(password)
         excel.Visible = True
 
     # Cerrar Excel
